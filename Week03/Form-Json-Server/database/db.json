@@ -4,19 +4,19 @@
             "id":1,
             "name":"Johnson",
             "surname":"Martin",
-            "e-mail":"j.martin@gmx.com"
+            "email":"j.martin@gmx.com"
         },
         {
             "id":2,
             "name":"Herkul",
             "surname":"Gerl",
-            "e-mail":"h.gerl@gmx.com"
+            "email":"h.gerl@gmx.com"
         },
         {
             "id":3,
             "name":"Samsa",
             "surname":"Lery",
-            "e-mail":"s.lery@gmx.com"
+            "email":"s.lery@gmx.com"
         }
     ]
 }
