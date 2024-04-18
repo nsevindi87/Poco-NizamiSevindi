@@ -52,3 +52,38 @@ footer{
     grid-column: 1/3;
     background-color: rgb(206, 189, 166);
 }
+
+@media screen and (max-width: 800px) {
+    .content01{
+        grid-row:3/8;
+        background-color: rgb(156, 121, 121);
+    }
+
+    .content02{
+        grid-row:3/8;
+        grid-column:2/3;
+        background-color: rgb(135, 61, 76);
+    }
+    .mainContent{
+        grid-column: 1/3;
+        grid-row: 8/13;
+        background-color: rgb(185, 136, 185);
+    }
+    aside{
+        grid-row:13/18;
+        grid-column:1/3;
+        background-color: rgb(189, 236, 220);
+    }
+}
+@media screen and (max-width:280px) {
+    .content01{
+        grid-row:3/5;
+        grid-column:1/3;
+        background-color: rgb(156, 121, 121);
+    }
+    .content02{
+        grid-row:5/8;
+        grid-column:1/3;
+        background-color: rgb(135, 61, 76);
+    }
+}
