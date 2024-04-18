@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before,*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+}
+
+main{
+    
+    margin: 2rem auto;
+}
+
+main ul {
+    justify-content: flex-start;
+    gap: 0;
+    overflow-x: hidden;
+}
+
+
+main li {
+    background: red;
+    color: white;
+    display: grid;
+    flex-shrink: 0;
+    font-size: 3rem;
+    height: 50vh;
+    place-items: center;
+    width: 100%;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+main li:first-of-type {
+    background: blue;
+}
+
+#slide1{
+    opacity: 1;
+}
+
+main li:last-of-type {
+    background: green;
+}
+
+main li:target {
+    opacity: 1;
+}
+
