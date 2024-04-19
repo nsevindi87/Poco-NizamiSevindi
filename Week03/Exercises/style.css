@@ -32,6 +32,13 @@ input{
     border: none;
 }
 
+select{
+    padding: 10px;
+    margin: 20px 0;
+    border: none;
+
+}
+
 button{
     padding: 5px;
     width: 100px;
@@ -41,4 +48,13 @@ button{
 
 p{
     font-size: 1.3rem;
+}
+
+#select{
+    width: 100%;
+
+}
+
+#select option{
+    text-align: center;
 }
