@@ -21,4 +21,5 @@ function handleBubleSort(pArr) {
 }
 
 const mixedList = [2, 6, 4, 1, 8, 3, 6];
+
 handleBubleSort(mixedList); // list, null, undefined
