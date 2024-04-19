@@ -15,3 +15,43 @@ body{
     flex-direction: column;
 }
 
+section{
+    width: 600px;
+    height: 300px;
+    border: 1px solid rgb(223, 216, 216);
+    background-color: rgb(227, 227, 250);
+    border-radius: 10px;
+    box-shadow: 10px 0 0 black;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+}
+
+label{
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+input{
+    margin: 20px 0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button{
+    padding: 7px;
+    background-color: rgb(140, 140, 212);
+}
+
+#result{
+    margin-top: 30px;
+    text-align: center;
+}
