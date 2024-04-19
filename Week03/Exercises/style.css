@@ -8,7 +8,6 @@ html{
 
 body{
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,51 +15,30 @@ body{
 }
 
 section{
-    width: 600px;
-    height: 300px;
-    background-color: rgb(227, 227, 250);
-    border-radius: 10px;
-}
-
-h2{
-    text-align: center;
-}
-
-form{
+    width: 50%;
+    border: 1px solid black;
+    background-color: rgb(192, 192, 206);
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin: 20px auto;
-}
-
-section{
-    margin: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-}
-
-label{
-    text-align: center;
-    font-size: 1.3rem;
+    align-items: center;
+    margin-top: 30px ;
 }
 
 input{
+    display: block;
+    padding: 10px;
+    width: 300px;
     margin: 20px 0;
-    padding: 5px;
-    border-radius: 5px;
+    border: none;
 }
 
 button{
-    padding: 7px;
-    background-color: rgb(140, 140, 212);
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
 }
 
-#result{
-    margin-top: 30px;
-    text-align: center;
-}
-#result02{
-    margin-top: 30px;
-    text-align: center;
+p{
     font-size: 1.3rem;
 }
