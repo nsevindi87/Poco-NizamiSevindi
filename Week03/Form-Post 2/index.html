@@ -9,16 +9,38 @@
 <body>
   <main>
     <h1>Registration Form</h1>
-    <form>
+    <form id="regisForm">
       <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Please write your username">
+      <input type="text" id="username" name="username" placeholder="Please write your username">
       <label for="full_name">Full name</label>
-      <input type="text" id="full_name" placeholder="Please write your name">
+      <input type="text" id="full_name" name= "full_name" placeholder="Please write your name">
       <label for="phone">Phone</label>
-      <input type="phone" id="username" placeholder="Please write your phone">
+      <input type="phone" id="phone" name="phone" placeholder="Please write your phone">
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Please write your e-mail">
+      <input type="email" id="email" name="email" placeholder="Please write your e-mail">
+      <button type="submit">Submit</button>
     </form>
   </main>
+
+  <script>
+    const formEl = document.getElementById("regisForm")
+    
+    formEl.addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const formData = new FormData(formEl);
+      const data = Object.fromEntries(formData);
+
+      fetch("https://reqres.in/api/users",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      .then((res)=>res.json())
+      .then((data)=>console.log(data))
+      .catch((error)=>console.log(error))
+    });
+  </script>
 </body>
 </html>
