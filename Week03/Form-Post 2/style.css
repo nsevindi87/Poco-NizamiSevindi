@@ -1,0 +1,40 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    color: rgb(0, 100, 200);
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px 0 rgba(127, 198, 228, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+main form label{
+    margin-top: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: rgb(0, 100, 200);
+}
+main form input{
+    width: 300px;
+    padding: 5px 10px;
+    border: 1px solid rgb(200, 200, 255);
+}

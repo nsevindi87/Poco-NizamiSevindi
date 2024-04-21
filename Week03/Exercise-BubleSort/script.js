@@ -7,11 +7,6 @@ function handleBubleSort(pArr) {
     for (let j = 0; j < pArr.length - i - 1; j++) {
       if (pArr[j] > pArr[j + 1]) {
         [pArr[j], pArr[j + 1]] = [pArr[j + 1], pArr[j]];
-        /*
-        let temp = pArr[j];
-        pArr[j] = pArr[j + 1];
-        pArr[j + 1] = temp;
-        */
       }
     }
     console.log(i);

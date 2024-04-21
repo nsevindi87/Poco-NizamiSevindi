@@ -62,3 +62,24 @@ function handleSubstract(pValue1, pValue2) {
     return 0;
   }
 }
+//EXAMPLE04
+const result05 = document.getElementById("result05");
+const form05 = document.getElementById("form05");
+
+form05.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const userNumber05 = parseInt(document.getElementById("userNumber05").value);
+  const userNumber06 = parseInt(document.getElementById("userNumber06").value);
+  const userFunc = document.getElementById("select").value;
+  console.log(typeof userFunc);
+  let result = handleFunction(userNumber05, userNumber06, userFunc);
+  result05.textContent = result;
+});
+
+function handleFunction(pValue1, pValue2, pFunc) {
+  switch (pFunc) {
+    case "plus":
+      pValue1 - pValue2;
+      break;
+  }
+}
