@@ -1,0 +1,40 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+body{
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form input{
+    margin: 20px;
+    padding: 8px 20px;
+    border: none;
+    box-shadow: 0 0 30px 0 rgb(253, 226, 248);
+    border-radius: 20px;
+}
+
+form button{
+    width: 50%;
+    margin: 30px auto;
+    padding: 8px;
+    background-color: rgb(249, 114, 254);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgb(255, 190, 245);
+}

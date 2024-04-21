@@ -10,6 +10,7 @@
   <main>
     <h1>Registration Form</h1>
     <form id="regisForm">
+      <!-- Without assigning name attribute object can not recognize form values!! -->
       <label for="username">Username</label>
       <input type="text" id="username" name="username" placeholder="Please write your username">
       <label for="full_name">Full name</label>
@@ -30,6 +31,11 @@
       const formData = new FormData(formEl);
       const data = Object.fromEntries(formData);
 
+      formEl.username.value = ""
+      formEl.full_name.value = ""
+      formEl.phone.value = ""
+      formEl.email.value = ""
+
       fetch("https://reqres.in/api/users",{
         method:"POST",
         headers:{
@@ -41,6 +47,8 @@
       .then((data)=>console.log(data))
       .catch((error)=>console.log(error))
     });
+
+    
   </script>
 </body>
 </html>

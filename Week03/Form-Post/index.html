@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Get Form Values</title>
   </head>
   <body>
@@ -11,7 +12,6 @@
     <form class="form">
       <input type="text" name="username" placeholder="username" />
       <input type="password" name="password" placeholder="password" />
-      <input type="checkbox" name="termscondition" />
       <button type="submit">Submit</button>
     </form>
 
@@ -23,7 +23,6 @@
 
         const formData = new FormData(formEl);
         const data = Object.fromEntries(formData);
-        console.log(data)
         fetch("https://reqres.in/api/users", {
           method: "POST",
           headers: {
