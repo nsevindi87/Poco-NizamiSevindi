@@ -37,3 +37,14 @@ if(author && quoto){
     alert("Please enter name of Author")
 }
 */
+
+let job = prompt("Please enter a job");
+let locationName = prompt("Please enter a location");
+let partnerName = prompt("Please enter name of your partner");
+let numOfChildren = prompt("Please enter number of children");
+
+if(job && locationName && partnerName && numOfChildren){
+    alert(`You will be a ${job} in ${locationName}, and married to ${partnerName} with ${numOfChildren} kids.`)
+}else{
+    alert("Please fill out the form correctly")
+}
