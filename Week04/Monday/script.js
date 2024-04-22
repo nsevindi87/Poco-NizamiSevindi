@@ -22,3 +22,18 @@ if(numberOfString){
     alert("Please enter your string")
 }
 */
+//Exercise 03
+/*
+let author = prompt("Please enter name of Author");
+let quoto = prompt("Please enter quote");
+
+if(author && quoto){
+    alert(`${author} says, ${quoto}`)
+}else if(!author && !quoto){
+    alert("Please enter author and quote")
+}else if(!quoto){
+    alert("Please enter quoto")
+}else{
+    alert("Please enter name of Author")
+}
+*/
