@@ -38,6 +38,8 @@ if(author && quoto){
 }
 */
 
+//Exercise 04
+/*
 let job = prompt("Please enter a job");
 let locationName = prompt("Please enter a location");
 let partnerName = prompt("Please enter name of your partner");
@@ -48,3 +50,16 @@ if(job && locationName && partnerName && numOfChildren){
 }else{
     alert("Please fill out the form correctly")
 }
+*/
+
+//Exercise 05
+/*
+let birthYear = prompt("Please write your birth of year");
+let currentOrFutureYear = prompt("Please write future year");
+
+if(birthYear & currentOrFutureYear){
+    alert(`I will be either ${currentOrFutureYear - birthYear} or ${currentOrFutureYear - birthYear -1} in ${currentOrFutureYear}`)
+}else{
+    alert("Please fill out the form correctly")
+}
+*/
