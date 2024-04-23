@@ -22,6 +22,8 @@ if(numberOfString){
     alert("Please enter your string")
 }
 */
+
+
 //Exercise 03
 /*
 let author = prompt("Please enter name of Author");
