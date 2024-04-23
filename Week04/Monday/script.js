@@ -65,3 +65,27 @@ if(birthYear & currentOrFutureYear){
     alert("Please fill out the form correctly")
 }
 */
+
+//Exercise 06
+
+/*
+let birthYear = prompt("Please write your birth of year");
+let birthMonth = prompt("Please write your birth of month");
+
+let currentOrFutureYear = prompt("Please write future year");
+let currentOrFutureMonth = prompt("Please write future month");
+
+if(!birthYear || !birthMonth || !currentOrFutureMonth || !currentOrFutureYear){
+    alert("Please fill out your form correctly")
+}else if(0 > birthMonth || birthMonth > 12 ||
+         0 > currentOrFutureMonth || currentOrFutureMonth > 12 ||
+         currentOrFutureYear < birthYear || birthYear.length !== 4 ||
+         currentOrFutureYear.length !== 4){
+         alert("Please check your values")
+}else{
+    if(birthMonth>currentOrFutureMonth || birthMonth == currentOrFutureMonth){
+        alert(`Your age ${currentOrFutureYear-birthYear}`)
+    }else(
+        alert(`Your age ${currentOrFutureYear-birthYear -1 }`)
+    )
+}*/
