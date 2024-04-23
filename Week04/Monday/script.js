@@ -57,35 +57,68 @@ if(job && locationName && partnerName && numOfChildren){
 //Exercise 05
 /*
 let birthYear = prompt("Please write your birth of year");
-let currentOrFutureYear = prompt("Please write future year");
+let futureYear = prompt("Please write future year");
 
-if(birthYear & currentOrFutureYear){
-    alert(`I will be either ${currentOrFutureYear - birthYear} or ${currentOrFutureYear - birthYear -1} in ${currentOrFutureYear}`)
+if(birthYear & futureYear){
+    alert(`I will be either ${futureYear - birthYear} or ${futureYear - birthYear -1} in ${futureYear}`)
 }else{
     alert("Please fill out the form correctly")
 }
 */
 
 //Exercise 06
+/* 
+const avAge = 83
 
-/*
-let birthYear = prompt("Please write your birth of year");
-let birthMonth = prompt("Please write your birth of month");
+let birthYear = Number(prompt("Please write your birth of year"));
+let birthMonth = Number(prompt("Please write your birth of month"));
 
-let currentOrFutureYear = prompt("Please write future year");
-let currentOrFutureMonth = prompt("Please write future month");
+let futureYear = Number(prompt("Please write future year"));
+let futureMonth = Number(prompt("Please write future month"));
 
-if(!birthYear || !birthMonth || !currentOrFutureMonth || !currentOrFutureYear){
+let ageBasic = futureYear-birthYear
+
+if(!birthYear || !birthMonth || !futureMonth || !futureYear){
     alert("Please fill out your form correctly")
 }else if(0 > birthMonth || birthMonth > 12 ||
-         0 > currentOrFutureMonth || currentOrFutureMonth > 12 ||
-         currentOrFutureYear < birthYear || birthYear.length !== 4 ||
-         currentOrFutureYear.length !== 4){
+         0 > futureMonth || futureMonth > 12 ||
+         futureYear < birthYear || birthYear.toString().length !== 4 ||
+         futureYear.toString().length !== 4){
          alert("Please check your values")
 }else{
-    if(birthMonth>currentOrFutureMonth || birthMonth == currentOrFutureMonth){
-        alert(`Your age ${currentOrFutureYear-birthYear}`)
+    if(birthMonth>futureMonth || birthMonth == futureMonth){
+        alert(`Your age ${ageBasic -1 } and I hope you will live ${avAge - ageBasic + 1} years more! `)
     }else(
-        alert(`Your age ${currentOrFutureYear-birthYear -1 }`)
+        alert(`Your age ${ageBasic} and I hope you will live ${avAge - ageBasic} years more! `)
     )
-}*/
+}
+  */
+
+
+
+const buttonEl = document.getElementById("button");
+const result = document.getElementById("result");
+
+buttonEl.addEventListener("click", (e)=>{
+e.preventDefault();
+
+const birthday = new Date(document.getElementById("birthDate").value);
+const futureDay = new Date(document.getElementById("calculateDate").value);
+
+const dayDifference = (futureDay - birthday) / (1000 * 60 * 60 * 24)
+
+let year = Math.floor(dayDifference / 365)
+let remainDays = dayDifference % 365;
+let month = Math.floor(remainDays/30)
+let remainDays2 = remainDays % 30
+
+if(!remainDays2){
+    result.textContent = "Please enter date"
+}else{
+    result.textContent = `You lived ${dayDifference} days so far! It means ${year} year/s ${month} month/s and ${remainDays2} day/s`;
+}
+
+})
+
+
+
