@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <main>
         <h1>Age Calculator</h1>
         <form id="ageForm">
-            <label for="birthDate">Select your birthday!</label>
-            <input type="date" id="birthDate" name="birthdate">
-            <label for="calculateDate">Select another day!</label>
-            <input type="date" id="calculateDate" name="calculatedate">
+            <div>
+                <label for="birthDate">Select your birthday!</label>
+                <input type="date" id="birthDate" name="birthdate">
+            </div>
+            <div>
+                <label for="calculateDate">Select another day!</label>
+                <input type="date" id="calculateDate" name="calculatedate">
+            </div>
             <button type="submit" id="button">Calculate Your Age</button>
         </form>
         <div id="result"></div>

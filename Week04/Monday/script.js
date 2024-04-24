@@ -9,8 +9,7 @@ if(yourname){
 }else{
     console.log("Please enter your name")
     alert(`Please enter your name`)
-}
-*/
+}*/
 
 //Exercise 02
 /*
@@ -67,7 +66,7 @@ if(birthYear & futureYear){
 */
 
 //Exercise 06
-/* 
+/*
 const avAge = 83
 
 let birthYear = Number(prompt("Please write your birth of year"));
@@ -77,13 +76,14 @@ let futureYear = Number(prompt("Please write future year"));
 let futureMonth = Number(prompt("Please write future month"));
 
 let ageBasic = futureYear-birthYear
+let birthMonthIsNotValid = 0 > birthMonth || birthMonth > 12;
+let futurebirthMouthIsNotValid = 0 > futureMonth || futureMonth > 12;
+let birthYearCompare = futureYear < birthYear ;
+let lengthOfYear = birthYear.toString().length !== 4 || futureYear.toString().length !== 4;
 
 if(!birthYear || !birthMonth || !futureMonth || !futureYear){
     alert("Please fill out your form correctly")
-}else if(0 > birthMonth || birthMonth > 12 ||
-         0 > futureMonth || futureMonth > 12 ||
-         futureYear < birthYear || birthYear.toString().length !== 4 ||
-         futureYear.toString().length !== 4){
+}else if(birthMonthIsNotValid || futurebirthMouthIsNotValid || birthYearCompare || lengthOfYear){
          alert("Please check your values")
 }else{
     if(birthMonth>futureMonth || birthMonth == futureMonth){
@@ -92,8 +92,7 @@ if(!birthYear || !birthMonth || !futureMonth || !futureYear){
         alert(`Your age ${ageBasic} and I hope you will live ${avAge - ageBasic} years more! `)
     )
 }
-  */
-
+*/
 
 
 const buttonEl = document.getElementById("button");
@@ -112,13 +111,11 @@ let remainDays = dayDifference % 365;
 let month = Math.floor(remainDays/30)
 let remainDays2 = remainDays % 30
 
-if(!remainDays2){
+if( !remainDays2){
     result.textContent = "Please enter date"
 }else{
     result.textContent = `You lived ${dayDifference} days so far! It means ${year} year/s ${month} month/s and ${remainDays2} day/s`;
 }
-
 })
 
-
-
+button
