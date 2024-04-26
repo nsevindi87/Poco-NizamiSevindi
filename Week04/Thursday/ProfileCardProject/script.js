@@ -25,3 +25,12 @@ const itTrainer = {
 };
 
 itTrainer.getLevelOfLanguage("html");
+
+/*
+Create element createElement
+Select location - queryselector
+Locate it - after or insertAdjacentElement("afterend", h2Tag)
+*/
+
+//import from another file object
+//import pic variables from another file __ links of picture
