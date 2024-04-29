@@ -20,29 +20,49 @@ function gatherUserInfos (e){
 }
 
 function checkIfLoginExists (pUser,pPwd){
+    let userFound = false;
+    
     users.forEach((user) => {
+        if (userFound) return;
+        
         if(user.username == pUser){
             if(user.password == pPwd){
-                changeViewIfLoggedIn()
-                console.log(3)
+                changeViewIfLoggedIn(user.username)
+                userFound = true
             }else{
                 showErrorMessage()
-                console.log(1)
+                userFound = true
             }
         }else{
             showErrorMessage()
-            console.log(4)
         }
+
     })   
+
+    if(!userFound){
+        showErrorMessage();
+    }
+}
+
+function changeViewIfLoggedIn (pUsername){
+    document.getElementById("header").textContent = `Welcome ${pUsername}`
+    loginForm.innerHTML = `<button type="button" onClick="handleLogout()">Logout</button>`
 }
 
 
-
-function changeViewIfLoggedIn (){
-    console.log("LOGGED IN!")
-
+function handleLogout (){
+    document.getElementById("header").textContent = `Login`
+    loginForm.innerHTML = `
+        <form action="index.html" method="post" >
+            <label for="userid">Username</label>
+            <input type="text" id="userid" name="username" required>
+            <label for="pwdid">Password</label>
+            <input type="password" id="pwdid" name="pwdName" required>
+            <button type="submit">Login</button>
+        </form>
+        `
 }
 
 function showErrorMessage (){
-    console.log("USER NOT FOUND!")
+    document.getElementById("header").textContent = `Please Try Again`
 }
