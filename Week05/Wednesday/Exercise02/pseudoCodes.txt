@@ -1,0 +1,13 @@
+Prompt user for current age
+assign currentAge = user input
+
+Prompt user for desired retirement age
+assign retirementAge = user input
+
+assign RequiredYear = retirementAge - currentAge
+
+assign currentYear = get current year with Date function
+
+assign retirementYear = currentYear + RequiredYear
+
+It's currentYear, so you can retire in retirementYear.

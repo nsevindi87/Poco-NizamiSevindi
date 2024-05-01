@@ -7,5 +7,5 @@ if (!userAge || !retirementAge || userAge > retirementAge) {
   let calculatedAge = retirementAge - userAge;
   let actualYear = new Date().getFullYear();
   let retirementYear = actualYear + calculatedAge;
-  alert(retirementYear);
+  alert(`It's ${actualYear}, so you can retire in ${retirementYear}.`);
 }
