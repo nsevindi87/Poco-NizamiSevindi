@@ -1,9 +1,9 @@
 // Set this constant to true to debug the placement of bombs without
 // having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = false;
+const CHEAT_REVEAL_ALL = true;
 
-const ROWS_COUNT = 10;
-const COLS_COUNT = 10;
+const ROWS_COUNT = 15;
+const COLS_COUNT = 15;
 
 var defeat = false;
 var victory = false;
@@ -25,24 +25,33 @@ for (var row = 0; row < ROWS_COUNT; row++) {
 }
 
 // TODO: Task 1 - add some bombs at fixed positions.
-function locatedBombs() {
+/* function locatedBombs() {
   cells[0][0].isBomb = true;
   cells[8][2].isBomb = true;
   cells[9][2].isBomb = true;
   cells[2][7].isBomb = true;
   cells[4][9].isBomb = true;
   cells[9][9].isBomb = true;
-}
-locatedBombs();
+} 
+locatedBombs();*/
 console.log(cells);
 
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
-//                Add a BOMBS_COUNT constant so that you can easily change the amount of bombs placed. Put it next to the
-//                other constants.
-//
+const BOMBS_COUNT = 20;
+function randomBombPlace() {
+  for (let b = 0; b < BOMBS_COUNT; b++) {
+    let randomRow = Math.floor(Math.random() * ROWS_COUNT);
+    let randomCol = Math.floor(Math.random() * COLS_COUNT);
+    cells[randomRow][randomCol].isBomb = true;
+  }
+}
+randomBombPlace();
 
-// Once the game has been initialized, we "render" it.
 render();
+
+// TODO: Task 3 - CHANGE ROW - COLUMN AND BOMB COUNT
+// TODO: Task 4
+function countAdjacentBombs() {}
 
 //
 // Game functions definitions
