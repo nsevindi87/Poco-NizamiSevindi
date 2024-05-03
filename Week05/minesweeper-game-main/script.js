@@ -1,6 +1,6 @@
 // Set this constant to true to debug the placement of bombs without
 // having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = false;
+let CHEAT_REVEAL_ALL = false;
 
 const ROWS_COUNT = 10;
 const COLS_COUNT = 10;
@@ -36,7 +36,7 @@ for (var row = 0; row < ROWS_COUNT; row++) {
 locatedBombs();*/
 
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
-const BOMBS_COUNT = 5;
+const BOMBS_COUNT = 6;
 const BOMBSPLACES = [];
 function randomBombPlace() {
   for (let b = 0; b < BOMBS_COUNT; b++) {
@@ -70,22 +70,57 @@ console.log(countAdjacentBombs()); */
 // Game functions definitions
 //
 
-function discoverCell(row, col) {
+function discoverCell(row, col, event) {
   // TODO: Task 5 - Reveal cells when clicked.
-  cells[row][col].discovered = true;
+  //Clicked
+  /* if (cells[row][col].hasBeenFlagged) {
+    return;
+  } else if (cells[row][col].isBomb && !event.shiftKey) {
+    defeat = true;
+  } */
+  if (cells[row][col].isBomb && !event.shiftKey) {
+    defeat = true;
+  }
+  if (cells[row][col].hasBeenFlagged) {
+    cells[row][col].discoverCell = false;
+  }
+  discoverNeighbor(row, col);
 
+  //check it if ibomb true? else go on recursive funk.tower of hanoi= game
   // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
-  //
-  //
-  // TODO: Task 8 - Implement defeat. If the player "discovers" a bomb (clicks on it without holding shift), set the variable defeat to true.
-  //
+  //Right
+  discoverNeighbor(row, col + 1);
+  //left
+  discoverNeighbor(row, col - 1);
+  //top
+  discoverNeighbor(row - 1, col);
+  //bottom
+  discoverNeighbor(row + 1, col);
+  //Right-TOP
+  discoverNeighbor(row - 1, col + 1);
+  //Right- bottom
+  discoverNeighbor(row + 1, col + 1);
+  //Left-top
+  discoverNeighbor(row - 1, col - 1);
+  //left-bottom
+  discoverNeighbor(row + 1, col - 1);
+  // TODO: Task 8 - Implement defeat. If the player "discovers" a bomb (clicks on it without holding shift),set the variable defeat to true.
+}
+
+function discoverNeighbor(pRow, pCol) {
+  if (pRow < 0 || pRow > ROWS_COUNT - 1 || pCol < 0 || pCol > COLS_COUNT - 1) {
+    return;
+  } else if (cells[pRow][pCol].isBomb) {
+    console.log("Hello");
+  } else {
+    cells[pRow][pCol].discovered = true;
+  }
 }
 
 function flagCell(row, col) {
-  //
   // TODO: Task 7 - Implement flags. Flags allow the player to mark cells that they think contain a bomb.
   //                When clicking a cell and holding shift, function flagCell() will be called for you.
-  //
+  cells[row][col].hasBeenFlagged = true;
 }
 
 // This function is called once for each cell when rendering the game. The row and col of the current cell is
@@ -208,7 +243,9 @@ function onCellClicked(row, col, event) {
   if (event.shiftKey) {
     flagCell(row, col);
   } else {
-    discoverCell(row, col);
+    if (!cells[row][col].hasBeenFlagged) {
+      discoverCell(row, col, event);
+    }
   }
   checkForVictory();
   render();
