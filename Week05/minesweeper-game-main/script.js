@@ -5,6 +5,8 @@ let CHEAT_REVEAL_ALL = false;
 const ROWS_COUNT = 10;
 const COLS_COUNT = 10;
 
+let numOfCells;
+
 var defeat = false;
 var victory = false;
 
@@ -44,7 +46,6 @@ function randomBombPlace() {
     let randomCol = Math.floor(Math.random() * COLS_COUNT);
     cells[randomRow][randomCol].isBomb = true;
     BOMBSPLACES.push(cells[randomRow][randomCol]);
-    console.log(BOMBSPLACES);
   }
 }
 randomBombPlace();
@@ -114,6 +115,7 @@ function discoverNeighbor(pRow, pCol) {
     console.log("Hello");
   } else {
     cells[pRow][pCol].discovered = true;
+    getClearedCells();
   }
 }
 
@@ -126,32 +128,57 @@ function flagCell(row, col) {
 // This function is called once for each cell when rendering the game. The row and col of the current cell is
 // passed to the functionn
 function countAdjacentBombs(row, col) {
-  //
   // TODO: Task 4 - Adjacent bombs are bombs in cells touching our cell (also diagonally). Implement this function
   //                so that it returns the count of adjacent cells with bombs in them.
-  //
-  return 1;
+  let numOfBombs = 0;
+  if (row > 0 && row < ROWS_COUNT - 1 && col > 0 && col < COLS_COUNT - 1) {
+    if (cells[row][col + 1].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row][col - 1].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row - 1][col].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row + 1][col].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row + 1][col + 1].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row + 1][col - 1].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row - 1][col - 1].isBomb) {
+      numOfBombs++;
+    }
+    if (cells[row - 1][col + 1].isBomb) {
+      numOfBombs++;
+    }
+  }
+
+  return numOfBombs;
 }
 
 function getBombsCount() {
   //
   // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-  //
-  return 0;
+  return BOMBS_COUNT;
 }
 
 function getClearedCells() {
   //
   // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-  //
-  return 0;
+  numOfCells = cells.map((cell) => cell.filter((c) => c.discovered === true));
+  return numOfCells.flat().length;
 }
 
 function getTotalCellsToClear() {
   //
   // TODO: Task 9 - Implement stats: the counters currently always display 0, calculate and return the relevant values.
-  //
-  return 0;
+  let total = COLS_COUNT * ROWS_COUNT;
+  return total;
 }
 
 function checkForVictory() {
@@ -245,6 +272,9 @@ function onCellClicked(row, col, event) {
   } else {
     if (!cells[row][col].hasBeenFlagged) {
       discoverCell(row, col, event);
+    }
+    if (cells[row][col].hasBeenFlagged) {
+      cells[row][col].hasBeenFlagged = false;
     }
   }
   checkForVictory();
