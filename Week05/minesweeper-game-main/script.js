@@ -1,9 +1,9 @@
 // Set this constant to true to debug the placement of bombs without
 // having to click on all cells to reveal them.
-const CHEAT_REVEAL_ALL = true;
+const CHEAT_REVEAL_ALL = false;
 
-const ROWS_COUNT = 15;
-const COLS_COUNT = 15;
+const ROWS_COUNT = 10;
+const COLS_COUNT = 10;
 
 var defeat = false;
 var victory = false;
@@ -34,15 +34,17 @@ for (var row = 0; row < ROWS_COUNT; row++) {
   cells[9][9].isBomb = true;
 } 
 locatedBombs();*/
-console.log(cells);
 
 // TODO: Task 2 - Comment out the code of task 1. Instead of adding bombs in fixed places, add 10 of them in random places.
-const BOMBS_COUNT = 20;
+const BOMBS_COUNT = 5;
+const BOMBSPLACES = [];
 function randomBombPlace() {
   for (let b = 0; b < BOMBS_COUNT; b++) {
     let randomRow = Math.floor(Math.random() * ROWS_COUNT);
     let randomCol = Math.floor(Math.random() * COLS_COUNT);
     cells[randomRow][randomCol].isBomb = true;
+    BOMBSPLACES.push(cells[randomRow][randomCol]);
+    console.log(BOMBSPLACES);
   }
 }
 randomBombPlace();
@@ -51,17 +53,27 @@ render();
 
 // TODO: Task 3 - CHANGE ROW - COLUMN AND BOMB COUNT
 // TODO: Task 4
-function countAdjacentBombs() {}
-
+/* 
+function countAdjacentBombs(pRow, pCol) {
+  let neigborBombNum = 0;
+  for (let r = 0; r < ROWS_COUNT; r++) {
+    for (let c = 0; c < COLS_COUNT; c++) {
+      if (cells[r][c].isBomb) {
+        neigborBombNum++;
+        return neigborBombNum;
+      }
+    }
+  }
+}
+console.log(countAdjacentBombs()); */
 //
 // Game functions definitions
 //
 
 function discoverCell(row, col) {
-  //
   // TODO: Task 5 - Reveal cells when clicked.
-  //
-  //
+  cells[row][col].discovered = true;
+
   // TODO: Task 6 - Discover neighbor cells recursively, as long as there are no adjacent bombs to the current cell.
   //
   //
