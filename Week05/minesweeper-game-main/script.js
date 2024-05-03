@@ -2,8 +2,8 @@
 // having to click on all cells to reveal them.
 let CHEAT_REVEAL_ALL = false;
 
-const ROWS_COUNT = 10;
-const COLS_COUNT = 10;
+const ROWS_COUNT = 5;
+const COLS_COUNT = 5;
 
 let numOfCells;
 
@@ -47,26 +47,12 @@ function randomBombPlace() {
     cells[randomRow][randomCol].isBomb = true;
     BOMBSPLACES.push(cells[randomRow][randomCol]);
   }
+  console.log(BOMBSPLACES);
 }
 randomBombPlace();
 
 render();
 
-// TODO: Task 3 - CHANGE ROW - COLUMN AND BOMB COUNT
-// TODO: Task 4
-/* 
-function countAdjacentBombs(pRow, pCol) {
-  let neigborBombNum = 0;
-  for (let r = 0; r < ROWS_COUNT; r++) {
-    for (let c = 0; c < COLS_COUNT; c++) {
-      if (cells[r][c].isBomb) {
-        neigborBombNum++;
-        return neigborBombNum;
-      }
-    }
-  }
-}
-console.log(countAdjacentBombs()); */
 //
 // Game functions definitions
 //
@@ -185,8 +171,9 @@ function checkForVictory() {
   //
   // TODO: Task 10 - Implement victory. If the player has revealed as many cells as they must (every cell that isn't a
   //                 bomb), set variable victory to true.
-  //
-  return 0;
+  let clearedCells = getClearedCells();
+  let totalCells = getTotalCellsToClear();
+  totalCells - BOMBS_COUNT == getClearedCells ? victory == true : null;
 }
 
 //
