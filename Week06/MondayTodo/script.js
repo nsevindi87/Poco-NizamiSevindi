@@ -20,6 +20,7 @@ class createGift {
     this.guestWhoSelects = guest;
   }
 }
+
 const pTag = document.querySelector("p");
 const inputTag = document.querySelector("#guest");
 const fallbackImg =
@@ -42,20 +43,33 @@ const gifts = [
   ),
   new createGift("Bed linen set", 60),
 ];
+
 addGiftsToDOM();
 function addGiftsToDOM() {
   let ulTag = document.createElement("ul");
-  /* const markup = gifts.map(gift => `<li><h2>${gift.name}</h2><p>CHF ${gift.price}</p>${gift.shoppingURL?`<a href="${gift.shoppingURL}" target="_blank">Buy now</a>`:``}<img src="${!gift.img?fallbackImg:gift.img}" alt="${gift.name}"><button>Select this gift</button></li>`).join("");
+  /* const markup = gifts.map(gift => `
+  <li>
+    <h2>${gift.name}</h2>
+    <p>CHF ${gift.price}</p>
+    ${gift.shoppingURL?`<a href="${gift.shoppingURL}" target="_blank">Buy now</a>`:``}
+    <img src="${!gift.img?fallbackImg:gift.img}" alt="${gift.name}">
+    <button>Select this gift</button>
+  </li>`).join("");
+
   ulTag.insertAdjacentHTML("beforeend",markup); */
+
   gifts.forEach((gift) => {
     let liTag = document.createElement("li");
     ulTag.appendChild(liTag);
+
     let h2Tag = document.createElement("h2");
     h2Tag.textContent = gift.name;
     liTag.appendChild(h2Tag);
+
     let pTag = document.createElement("p");
     pTag.textContent = `CHF ${gift.price}`;
     liTag.appendChild(pTag);
+
     if (gift.shoppingURL !== "") {
       let aTag = document.createElement("a");
       aTag.textContent = "Buy now";
@@ -63,6 +77,7 @@ function addGiftsToDOM() {
       aTag.setAttribute("target", "_blank");
       liTag.appendChild(aTag);
     }
+
     let imgTag = document.createElement("img");
     if (gift.img === "") {
       imgTag.setAttribute("src", fallbackImg);
@@ -71,6 +86,7 @@ function addGiftsToDOM() {
     }
     imgTag.setAttribute("alt", gift.name);
     liTag.appendChild(imgTag);
+
     let btnTag = document.createElement("button");
     btnTag.textContent = "Select this gift";
     btnTag.addEventListener("click", (e) => {
@@ -78,7 +94,9 @@ function addGiftsToDOM() {
       liTag.classList.toggle("selected");
       console.table(gift);
     });
+
     liTag.appendChild(btnTag);
   });
+
   pTag.after(ulTag);
 }
