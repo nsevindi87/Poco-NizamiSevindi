@@ -2,8 +2,8 @@
 // having to click on all cells to reveal them.
 let CHEAT_REVEAL_ALL = false;
 
-const ROWS_COUNT = 5;
-const COLS_COUNT = 5;
+const ROWS_COUNT = 15;
+const COLS_COUNT = 15;
 
 let numOfCells;
 
@@ -47,7 +47,6 @@ function randomBombPlace() {
     cells[randomRow][randomCol].isBomb = true;
     BOMBSPLACES.push(cells[randomRow][randomCol]);
   }
-  console.log(BOMBSPLACES);
 }
 randomBombPlace();
 
